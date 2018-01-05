@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from tags.models import CoinTags
+
+
+@admin.register(CoinTags)
+class CoinTagsAdmin(admin.ModelAdmin):
+    pass
