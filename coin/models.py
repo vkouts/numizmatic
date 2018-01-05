@@ -16,8 +16,21 @@ class Coin(models.Model):
 
 
 class CoinImage(models.Model):
+    IMAGE_AVERS = 'A'
+    IMAGE_REVERS = 'B'
+    IMAGE_GURT = 'C'
+    IMAGE_OTHER = 'N'
+
+    TYPES = (
+        (IMAGE_AVERS, 'Avers'),
+        (IMAGE_REVERS, 'Revers'),
+        (IMAGE_GURT, 'Gurt'),
+        (IMAGE_OTHER, 'Other')
+    )
+
     coin = models.ForeignKey(Coin, on_delete=models.CASCADE)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='coins/%Y/%m/%d/')
+    type = models.CharField(max_length=1, choices=TYPES, default=IMAGE_OTHER)
 
     def __str__(self):
         return self.image.url

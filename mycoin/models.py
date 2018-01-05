@@ -22,7 +22,7 @@ class MyCoin(models.Model):
 
 class MyCoinImage(models.Model):
     coin = models.ForeignKey(MyCoin, on_delete=models.CASCADE)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='mycoins/%Y/%m/%d/')
 
     def __str__(self):
         return self.image.url
