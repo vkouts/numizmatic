@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 
     'country',
     'coin',
-    'mycoin'
+    'mycoin',
+    'tags'
 ]
 
 MIDDLEWARE = [

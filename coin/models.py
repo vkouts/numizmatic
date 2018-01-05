@@ -1,5 +1,6 @@
 from django.db import models
 from country.models import Country
+from tags.models import CoinTags
 
 
 class Coin(models.Model):
@@ -19,6 +20,7 @@ class Coin(models.Model):
                                  on_delete=models.CASCADE, null=True, blank=True)
     circulation = models.IntegerField(verbose_name='Тираж', null=True, blank=True)
     kind = models.CharField(verbose_name='Вид', max_length=1, choices=KIND, default=KIND_REGULAR)
+    tags = models.ManyToManyField(CoinTags, verbose_name='Теги')
 
     def __str__(self):
         return '{}: {}  {} - {}'.format(self.country.name, self.title, self.year_from, self.year_to)
