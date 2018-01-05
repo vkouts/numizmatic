@@ -1,0 +1,30 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <title>Нумизмат</title>
+    <script type="application/javascript" src="{% static 'dist/bundle.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'dist/bundle.css' %}"/>
+    {% block header %}{% endblock %}
+</head>
+<body>
+    <div class="num-header">
+      <div class="container">
+        <nav class="nav blog-nav">
+          <a class="nav-link active" href="#">Главная</a>
+          <a class="nav-link" href="#">Мои монеты</a>
+          <a class="nav-link" href="#">О проекте</a>
+        </nav>
+      </div>
+    </div>
+    {% block main %}{% endblock %}
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">2018 г.</span>
+      </div>
+    </footer>
+</body>
+</html>
