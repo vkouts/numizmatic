@@ -18,6 +18,7 @@ class Coin(models.Model):
     country = models.ForeignKey(Country, verbose_name='Страна', on_delete=models.CASCADE)
     material = models.ForeignKey('CoinMaterial', verbose_name='Материал монеты',
                                  on_delete=models.CASCADE, null=True, blank=True)
+    weight = models.FloatField(verbose_name='Масса', default=0.0)
     circulation = models.IntegerField(verbose_name='Тираж', null=True, blank=True)
     kind = models.CharField(verbose_name='Вид', max_length=1, choices=KIND, default=KIND_REGULAR)
     tags = models.ManyToManyField(CoinTags, verbose_name='Теги')
