@@ -12,7 +12,7 @@ class Coin(models.Model):
     circulation = models.IntegerField(verbose_name='Тираж', null=True, blank=True)
 
     def __str__(self):
-        return self.title
+        return '{}: {}  {} - {}'.format(self.country.name, self.title, self.year_from, self.year_to)
 
 
 class CoinImage(models.Model):

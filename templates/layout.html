@@ -14,9 +14,9 @@
     <div class="num-header">
       <div class="container">
         <nav class="nav blog-nav">
-          <a class="nav-link active" href="#">Главная</a>
+          <a class="nav-link active" href="{% url 'main-view' %}">Главная</a>
           <a class="nav-link" href="{% url 'my-coins-view' %}">Мои монеты</a>
-          <a class="nav-link" href="#">О проекте</a>
+          <a class="nav-link" href="{% url 'about-view' %}">О проекте</a>
         </nav>
       </div>
     </div>

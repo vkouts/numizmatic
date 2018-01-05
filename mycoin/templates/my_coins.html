@@ -4,11 +4,17 @@
     <div class="num-main">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    {% for coin in object_list %}
-                    <div>{{ coin.coin.title }}</div>
-                    {% endfor %}
-                </div>
+                {% for coin in object_list %}
+                    <div class="col-md-3">
+                        <div class="coin-image">
+                            <img src="{{coin.mycoinimage_set.all.first.image.url }}">
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="coin-title">{{ coin.coin.country.name }} {{ coin.coin.title }} {{ coin.year }} г.</div>
+                    </div>
+
+                {% endfor %}
             </div>
         </div>
     </div>

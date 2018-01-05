@@ -24,5 +24,6 @@ from mycoin.views import MainView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('mycoins/', include('mycoin.urls')),
-    path('main/', MainView.as_view())
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('main/', MainView.as_view(), name="main-view")
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

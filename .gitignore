@@ -1,5 +1,6 @@
 db.sqlite3
 *.pyc
+media/
 static/bower_components/
 static/dist/
 static/node_modules/
