@@ -13,6 +13,7 @@ class Coin(models.Model):
     )
 
     title = models.TextField('Наименование')
+    description = models.TextField('Описание', null=True, blank=True)
     year_from = models.IntegerField('Год начала чеканки', null=True, blank=True)
     year_to = models.IntegerField('Год конца чеканки', null=True, blank=True)
     country = models.ForeignKey(Country, verbose_name='Страна', on_delete=models.CASCADE)
