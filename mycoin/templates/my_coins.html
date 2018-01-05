@@ -7,7 +7,9 @@
                 {% for coin in object_list %}
                     <div class="col-md-3">
                         <div class="coin-image">
-                            <img src="{{coin.mycoinimage_set.all.first.image.url }}">
+                            <a href="{% url 'my-coin-detail' pk=coin.pk %}">
+                                <img src="{{coin.mycoinimage_set.all.first.image.url }}" />
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-9">

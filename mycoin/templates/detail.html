@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+    <div class="num-main">
+        <div class="container">
+            <div class="row coin-image-detail">
+                <div class="col-md-5">
+                    {{ object.coin }}
+                </div>
+                <div class="col-md-7">
+                    {% for im in object.mycoinimage_set.all %}
+                        <img src="{{ im.image.url }}" />
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

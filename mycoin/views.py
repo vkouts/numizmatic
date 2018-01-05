@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 
 from mycoin.models import MyCoin
 
@@ -14,5 +14,10 @@ class AboutView(TemplateView):
 
 class MyCoinsView(ListView):
     template_name = "my_coins.html"
+    model = MyCoin
+
+
+class MyCoinDetailView(DetailView):
+    template_name = "detail.html"
     model = MyCoin
 
