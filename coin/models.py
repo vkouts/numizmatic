@@ -3,6 +3,14 @@ from country.models import Country
 
 
 class Coin(models.Model):
+    KIND_REGULAR = 'A'
+    KIND_ANNIVERSARY = 'B'
+
+    KIND = (
+        (KIND_REGULAR, 'Регулярный чекан'),
+        (KIND_ANNIVERSARY, 'Юбилейная'),
+    )
+
     title = models.TextField('Наименование')
     year_from = models.IntegerField('Год начала чеканки', null=True, blank=True)
     year_to = models.IntegerField('Год конца чеканки', null=True, blank=True)
@@ -10,6 +18,7 @@ class Coin(models.Model):
     material = models.ForeignKey('CoinMaterial', verbose_name='Материал монеты',
                                  on_delete=models.CASCADE, null=True, blank=True)
     circulation = models.IntegerField(verbose_name='Тираж', null=True, blank=True)
+    kind = models.CharField(verbose_name='Вид', max_length=1, choices=KIND, default=KIND_REGULAR)
 
     def __str__(self):
         return '{}: {}  {} - {}'.format(self.country.name, self.title, self.year_from, self.year_to)
@@ -22,10 +31,10 @@ class CoinImage(models.Model):
     IMAGE_OTHER = 'N'
 
     TYPES = (
-        (IMAGE_AVERS, 'Avers'),
-        (IMAGE_REVERS, 'Revers'),
-        (IMAGE_GURT, 'Gurt'),
-        (IMAGE_OTHER, 'Other')
+        (IMAGE_AVERS, 'Аверс'),
+        (IMAGE_REVERS, 'Реверс'),
+        (IMAGE_GURT, 'Гурт'),
+        (IMAGE_OTHER, 'Другое')
     )
 
     coin = models.ForeignKey(Coin, on_delete=models.CASCADE)
